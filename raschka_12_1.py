@@ -58,5 +58,11 @@ data_loader = DataLoader(joint_dataset, batch_size=2, shuffle=True)
 for i, batch in enumerate(data_loader,1):
     print(f'batch {i}: \n x: {batch[0]}, \n y: {batch[1]}')
 
-
+# when training with multiple epochs, need to shuffle and iterate over the dataset by
+# the desired number of epochs, Let's iterate over the batched dataset twice:
+# this results in two different sets of batches.
+for epoch in range(2):
+    print(f'Epoch {epoch+1}')
+    for i, batch in enumerate(data_loader, 1):
+        print(f'batch {i}: \n x: {batch[0]}, \n y: {batch[1]}')
 
